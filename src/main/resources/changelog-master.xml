@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+     <changeSet author="raiks" id="20191208-create-widget-table">
+        <createTable tableName="widget">
+            <column name="guid" type="varchar(36)">
+                <constraints primaryKey="true" primaryKeyName="widget_pk"/>
+            </column>
+            <column name="x" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="y" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="width" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="height" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zindex" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="widget" columnNames="x, y, width, height, zindex" constraintName="widget_uk"/>
+     </changeSet>
+</databaseChangeLog>
+
